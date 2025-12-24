@@ -40,6 +40,7 @@ These skills address the ongoing operation and optimization of agent systems.
 |-------|-------------|
 | [context-optimization](skills/context-optimization/) | Apply compaction, masking, and caching strategies |
 | [evaluation](skills/evaluation/) | Build evaluation frameworks for agent systems |
+| [advanced-evaluation](skills/advanced-evaluation/) | **NEW** Master LLM-as-a-Judge techniques: direct scoring, pairwise comparison, rubric generation, and bias mitigation |
 
 ## Design Philosophy
 
@@ -76,11 +77,31 @@ The [examples](examples/) folder contains complete system designs that demonstra
 | Example | Description | Skills Applied |
 |---------|-------------|----------------|
 | [x-to-book-system](examples/x-to-book-system/) | Multi-agent system that monitors X accounts and generates daily synthesized books | multi-agent-patterns, memory-systems, context-optimization, tool-design, evaluation |
+| [llm-as-judge-skills](examples/llm-as-judge-skills/) | **NEW** Production-ready LLM evaluation tools with TypeScript implementation, 19 passing tests | advanced-evaluation, tool-design, context-fundamentals, evaluation |
 
 Each example includes:
 - Complete PRD with architecture decisions
 - Skills mapping showing which concepts informed each decision
 - Implementation guidance
+
+### LLM-as-Judge Skills Example
+
+The [llm-as-judge-skills](examples/llm-as-judge-skills/) example is a complete TypeScript implementation demonstrating:
+
+- **Direct Scoring**: Evaluate responses against weighted criteria with rubric support
+- **Pairwise Comparison**: Compare responses with position bias mitigation
+- **Rubric Generation**: Create domain-specific evaluation standards
+- **EvaluatorAgent**: High-level agent combining all evaluation capabilities
+
+Based on research from [Eugene Yan's LLM-Evaluators](https://eugeneyan.com/writing/llm-evaluators/) and [Vercel AI SDK 6](https://vercel.com/blog/ai-sdk-6).
+
+```bash
+# Quick start
+cd examples/llm-as-judge-skills
+npm install
+cp env.example .env  # Add OPENAI_API_KEY
+npm test  # Run 19 passing tests
+```
 
 ## Structure
 
@@ -112,3 +133,4 @@ MIT License - see LICENSE file for details.
 ## References
 
 The principles in these skills are derived from research and production experience at leading AI labs and framework developers. Each skill includes references to the underlying research and case studies that inform its recommendations.
+
